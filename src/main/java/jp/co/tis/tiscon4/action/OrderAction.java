@@ -33,6 +33,21 @@ import nablarch.fw.web.interceptor.OnError;
 public class OrderAction {
 
     /**
+     * メアド登録画面を表示する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    @InjectForm(form = AcceptForm.class)
+    @OnError(type = ApplicationException.class, path = "index.html")
+    public HttpResponse inputEmail(HttpRequest req, ExecutionContext ctx) {
+        ctx.setRequestScopedVar("form", new UserForm());
+
+        return new HttpResponse("email.html");
+    }
+
+    /**
      * 加入条件確認画面を表示する。
      *
      * @param req リクエストコンテキスト
