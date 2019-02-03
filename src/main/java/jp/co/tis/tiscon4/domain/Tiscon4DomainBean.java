@@ -64,6 +64,9 @@ public class Tiscon4DomainBean {
     @JapaneseTelNumber()
     private String mobilePhoneNumber;
 
+    /** アクションタイプ　*/
+    private String actionType;
+
     /** メールアドレス */
     @MailAddress()
     @Length(max = 255)
