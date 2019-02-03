@@ -39,7 +39,8 @@ public class OrderAction {
      * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
      * @return HTTPレスポンス
      */
-    @OnError(type = ApplicationException.class, path = "index.html")
+    @InjectForm(form = AcceptForm.class)
+    @OnError(type = ApplicationException.class, path = "acceptance.html")
     public HttpResponse inputEmail(HttpRequest req, ExecutionContext ctx) {
         ctx.setRequestScopedVar("form", new UserForm());
 
