@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>ご本人情報の入力</title>
+    <title>連絡先の入力</title>
 
     <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
     <link rel="stylesheet"
@@ -15,16 +15,6 @@
 <div class="full height image">
     <div class="ui main container">
         <div class="ui information container">
-            <div class="acceptance-icon" style="border:solid 3px #4B610B;" th:if="${insOrder.insuranceType.equals('treat')}">
-                <img src="/img/icon_treat.png">
-            </div>
-            <div class="acceptance-icon" style="border:solid 3px #B40404;"
-                 th:if="${insOrder.insuranceType.equals('treatLady')}">
-                <img src="/img/icon_treatLady.png">
-            </div>
-            <div class="acceptance-icon" style="border:solid 3px #0174DF;" th:if="${insOrder.insuranceType.equals('future')}">
-                <img src="/img/icon_future.png">
-            </div>
             <div class="ui middle center aligned grid ">
                 <div class="user-block">
                     <h1 class="ui aligned header teal">お申込み情報</h1>
