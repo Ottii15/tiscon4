@@ -46,6 +46,29 @@ public class OrderAction {
         return new HttpResponse("email.html");
     }
 
+
+    /**
+     * メール送信完了ページを表示する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    public HttpResponse emailCompleted(HttpRequest req, ExecutionContext ctx) {
+        return new HttpResponse("emailCompleted.html");
+    }
+
+    /**
+     * 電話が後ほどかかってきますページを表示する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    public HttpResponse phoneCompleted(HttpRequest req, ExecutionContext ctx) {
+        return new HttpResponse("phoneCompleted.html");
+    }
+
     /**
      * 加入条件確認画面を表示する。
      *
