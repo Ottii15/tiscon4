@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>連絡先の入力</title>
+
+    <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"/>
+    <link rel="stylesheet"
+          th:href="@{https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<nav th:insert="header.html :: header"></nav>
+
+<div class="full height image">
+    <div class="ui main container">
+        <div class="ui information container">
+            <div class="ui middle center aligned grid ">
+                <div class="user-block">
+                    <h1 class="ui aligned header teal">お申込み情報</h1>
+
+                    <form class="ui form" method="post" action="/action/order/inputJob">
+
+                        <div class="ui horizontal divider">ご本人について</div>
+
+                        <div class="ui statement">※「＊」は入力必須項目です。</div>
+
+                        <table class="ui celled table">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <label>お名前（漢字）</label>
+                                    <p style="color:red;">＊</p>
+                                </td>
+                                <td>
+                                    <p>例：ＴＩＳ　太郎</p>
+                                    <div class="field" th:classappend="${errors.hasError('kanjiName')} ? 'error'">
+                                        <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                        <p th:if="${errors.hasError('kanjiName')}"
+                                           th:text="${errors.getMessage('kanjiName')}" class="error-message">
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap;">
+                                    <label>お名前（カタカナ）</label>
+                                    <p style="color:red;">＊</p>
+                                </td>
+                                <td>
+                                    <p>例：ティーアイエス　タロウ</p>
+                                    <div class="field" th:classappend="${errors.hasError('kanaName')} ? 'error'">
+                                        <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                        <p th:if="${errors.hasError('kanaName')}"
+                                           th:text="${errors.getMessage('kanaName')}" class="error-message">
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>自宅電話番号（半角）</label>
+                                    <p style="color:red;">＊</p>
+                                </td>
+                                <td>
+                                    <p>例：00-1111-2222</p>
+                                    <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
+                                        <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                        <p th:if="${errors.hasError('homePhoneNumber')}"
+                                           th:text="${errors.getMessage('homePhoneNumber')}" class="error-message">
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>携帯電話番号（半角）</label>
+                                    <p style="color:red;">＊</p>
+                                </td>
+                                <td>
+                                    <p>例：080-0000-0000</p>
+                                    <div class="field"
+                                         th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
+                                        <input type="text" name="mobilePhoneNumber"
+                                               th:value="${form.mobilePhoneNumber}"/>
+                                        <p th:if="${errors.hasError('mobilePhoneNumber')}"
+                                           th:text="${errors.getMessage('mobilePhoneNumber')}" class="error-message">
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>メールアドレス（半角）</label>
+                                    <p style="color:red;">＊</p>
+                                </td>
+                                <td>
+                                    <p>例：tiscon@example.com</p>
+                                    <div class="field" th:classappend="${errors.hasError('emailAddress')} ? 'error'">
+                                        <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
+                                        <p th:if="${errors.hasError('emailAddress')}"
+                                           th:text="${errors.getMessage('emailAddress')}" class="error-message">
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="ui column grid">
+                            <div class="eight wide column left aligned">
+                                <!--/*戻る場合、formの送り先を強制的に書き換える*/-->
+                                <button class="ui button angle left icon"
+                                        onclick="form.action='/action/order/backToAccept';return true">戻る
+                                </button>
+                            </div>
+                            <div class="eight wide column right aligned">
+                                <button class="ui teal button angle right icon">次へ（お勤め先情報の入力）</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
