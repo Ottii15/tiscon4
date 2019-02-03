@@ -7,10 +7,7 @@ import jp.co.tis.tiscon4.common.code.MarriedType;
 import jp.co.tis.tiscon4.common.code.TreatedType;
 import jp.co.tis.tiscon4.dto.ZipcodeDto;
 import jp.co.tis.tiscon4.entity.InsuranceOrder;
-import jp.co.tis.tiscon4.form.AcceptForm;
-import jp.co.tis.tiscon4.form.IndexForm;
-import jp.co.tis.tiscon4.form.JobForm;
-import jp.co.tis.tiscon4.form.UserForm;
+import jp.co.tis.tiscon4.form.*;
 import nablarch.common.dao.UniversalDao;
 import nablarch.common.web.interceptor.InjectForm;
 import nablarch.common.web.session.SessionUtil;
@@ -42,11 +39,22 @@ public class OrderAction {
     @InjectForm(form = AcceptForm.class)
     @OnError(type = ApplicationException.class, path = "acceptance.html")
     public HttpResponse inputEmail(HttpRequest req, ExecutionContext ctx) {
-        ctx.setRequestScopedVar("form", new UserForm());
+        ctx.setRequestScopedVar("form", new EmailForm());
 
         return new HttpResponse("email.html");
     }
 
+    /**
+     * メールアドレスを登録する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    public HttpResponse registerEmail(HttpRequest req, ExecutionContext ctx) {
+
+        return new HttpResponse("emailCompleted.html");
+    }
 
     /**
      * メール送信完了ページを表示する。
