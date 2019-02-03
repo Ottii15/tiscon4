@@ -51,9 +51,17 @@ public class OrderAction {
      * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
      * @return HTTPレスポンス
      */
+    @InjectForm(form = EmailForm.class)
+    @OnError(type = ApplicationException.class, path = "email.html")
     public HttpResponse registerEmail(HttpRequest req, ExecutionContext ctx) {
 
-        return new HttpResponse("emailCompleted.html");
+        EmailForm emailForm = ctx.getRequestScopedVar("form");
+
+        if (emailForm.getActionType().equals("phone")) {
+            return new HttpResponse("redirect://phoneCompleted");
+        }
+
+        return new HttpResponse("redirect://emailCompleted");
     }
 
     /**

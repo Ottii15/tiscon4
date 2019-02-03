@@ -38,6 +38,11 @@ public class EmailForm implements Serializable {
     @Domain("emailAddress")
     private String emailAddress;
 
+    /** アクションタイプ */
+    @Required
+    @Domain("actionType")
+    private String actionType;
+
 
     public String getKanjiName() {
         return kanjiName;
@@ -79,4 +84,11 @@ public class EmailForm implements Serializable {
         this.emailAddress = emailAddress;
     }
 
+    public String getActionType() {
+        return actionType;
+    }
+
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
+    }
 }
