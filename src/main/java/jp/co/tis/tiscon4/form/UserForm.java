@@ -12,22 +12,6 @@ import java.io.Serializable;
 public class UserForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    /** 漢字氏名 */
-    @Required
-    @Domain("kanjiName")
-    private String kanjiName;
-
-    /** カナ氏名 */
-    @Required
-    @Domain("kanaName")
-    private String kanaName;
-
-    /** 英字氏名 */
-    @Required
-    @Domain("alphabetName")
-    private String alphabetName;
-
     /** 性別 */
     @Required
     @Domain("gender")
@@ -47,21 +31,6 @@ public class UserForm implements Serializable {
     @Required
     @Domain("address")
     private String address;
-
-    /** 自宅電話番号 */
-    @Required
-    @Domain("homePhoneNumber")
-    private String homePhoneNumber;
-
-    /** 携帯電話番号 */
-    @Required
-    @Domain("mobilePhoneNumber")
-    private String mobilePhoneNumber;
-
-    /** メールアドレス */
-    @Required
-    @Domain("emailAddress")
-    private String emailAddress;
 
     /** 配偶者有無 */
     @Required
@@ -90,30 +59,6 @@ public class UserForm implements Serializable {
     /** 既往歴 */
     @Domain("medicalHistory")
     private String medicalHistory;
-
-    public String getKanjiName() {
-        return kanjiName;
-    }
-
-    public void setKanjiName(String kanjiName) {
-        this.kanjiName = kanjiName;
-    }
-
-    public String getKanaName() {
-        return kanaName;
-    }
-
-    public void setKanaName(String kanaName) {
-        this.kanaName = kanaName;
-    }
-
-    public String getAlphabetName() {
-        return alphabetName;
-    }
-
-    public void setAlphabetName(String alphabetName) {
-        this.alphabetName = alphabetName;
-    }
 
     public String getDateOfBirth() {
         return dateOfBirth;
@@ -145,30 +90,6 @@ public class UserForm implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getHomePhoneNumber() {
-        return homePhoneNumber;
-    }
-
-    public void setHomePhoneNumber(String homePhoneNumber) {
-        this.homePhoneNumber = homePhoneNumber;
-    }
-
-    public String getMobilePhoneNumber() {
-        return mobilePhoneNumber;
-    }
-
-    public void setMobilePhoneNumber(String mobilePhoneNumber) {
-        this.mobilePhoneNumber = mobilePhoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 
     public String getMarried() {

@@ -98,7 +98,7 @@ public class OrderAction {
 
         return new HttpResponse("acceptance.html");
     }
-
+    
     /**
      * 本人登録画面を表示する。
      *
@@ -106,8 +106,7 @@ public class OrderAction {
      * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
      * @return HTTPレスポンス
      */
-    @InjectForm(form = AcceptForm.class)
-    @OnError(type = ApplicationException.class, path = "acceptance.html")
+
     public HttpResponse inputUser(HttpRequest req, ExecutionContext ctx) {
         ctx.setRequestScopedVar("form", new UserForm());
         ctx.setRequestScopedVar("genderTypes", GenderType.values());
