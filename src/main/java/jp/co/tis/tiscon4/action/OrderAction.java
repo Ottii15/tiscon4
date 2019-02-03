@@ -87,6 +87,17 @@ public class OrderAction {
     }
 
     /**
+     * 保険選択画面を表示する。
+     *
+     * @param req リクエストコンテキスト
+     * @param ctx HTTPリクエストの処理に関連するサーバ側の情報
+     * @return HTTPレスポンス
+     */
+    public HttpResponse select(HttpRequest req, ExecutionContext ctx) {
+        return new HttpResponse("select.html");
+    }
+    
+    /**
      * 加入条件確認画面を表示する。
      *
      * @param req リクエストコンテキスト
